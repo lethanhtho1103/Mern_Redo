@@ -1,0 +1,20 @@
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+
+const db = require("./config/db");
+const authRouter = require("./routes/auth");
+
+const app = express();
+const PORT = 5000;
+
+db.connect();
+
+app.use(express.json());
+app.use(cors());
+
+app.use("/api/auth", authRouter);
+
+app.listen(PORT, () => {
+  console.log(`App listening at http://localhost:${PORT}`);
+});
