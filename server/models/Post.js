@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const PortSchema = new Schema({
+const PostSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -18,8 +18,8 @@ const PortSchema = new Schema({
   },
   user: {
     type: Schema.Types.ObjectId,
-    ref: "Users",
+    ref: "users",
   },
 });
 
-module.exports = mongoose.model("port", PortSchema);
+module.exports = mongoose.model("posts", PostSchema);
